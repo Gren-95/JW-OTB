@@ -1,0 +1,66 @@
+Install:
+digidoc
+fonts
+java
+anyconnect
+jabara connect
+acrobat
+adds
+office
+install firefox
+install powertoys
+
+Remove:
+java
+acrobat
+office
+
+
+Config:
+
+Update:
+windows		-	button made but not functional
+office		-	button made but not functional
+dell		-	button made but not functional
+
+
+Domain:
+open sysdm.cpl	-	button made but not functional
+add to domain	-	button made but not functional
+
+
+Printer:
+open eeraksrv02		-	button made but not functional
+control printers	-	button made but not functional
+
+
+
+
+
+
+Find out a way to add pps to excluded list in java and edge and make bookmark in edge
+
+
+
+open sysdm
+#Done# #Not Tested# open control printers
+#Done# #Not Tested# open eeraksrv02
+copy teamviewer and pcname to nas
+#Done# open settings
+#Done# #Not Tested# open touchscreen calibration
+
+
+
+#open printer pref
+#open printing pref
+
+
+Add branding
+add copyright
+add licence
+add author
+put in github
+add link to github
+
+make the script to exe
+make usb autoexec the exe
