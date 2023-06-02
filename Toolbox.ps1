@@ -33,13 +33,17 @@ $ApplicationForm.Controls.Add($FormTabControl)
 #----------------------------------------------
 
 
+$Tab1_row1_distance=25
+$Tab1_row2_distance=235
+$Tab1_row3_distance=445
+
 $Tab1 = New-object System.Windows.Forms.Tabpage
 $Tab1.DataBindings.DefaultDataSourceUpdateMode = 0 
 $Tab1.Name = "Tab1" 
 $Tab1.Text = "Configure” 
 $FormTabControl.Controls.Add($Tab1)
 
-# label 1
+# Config label 1
 $Tab1_label1 = New-Object System.Windows.Forms.Label
 $Tab1_label1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,10)
 $Tab1_label1.Font = New-Object System.Drawing.Font('verdana',16)
@@ -48,7 +52,7 @@ $Tab1_label1.ForeColor = "#000000"
 $Tab1_label1.Text = ("Config")
 $Tab1.Controls.Add($Tab1_label1)
 
-# label 2
+# Update label 2
 $Tab1_label2 = New-Object System.Windows.Forms.Label
 $Tab1_label2.Location = New-Object System.Drawing.Point($Tab1_row2_distance,10)
 $Tab1_label2.Font = New-Object System.Drawing.Font('verdana',16)
@@ -57,7 +61,7 @@ $Tab1_label2.ForeColor = "#000000"
 $Tab1_label2.Text = ("Update")
 $Tab1.Controls.Add($Tab1_label2)
 
-# label 3
+# Domian label 3
 $Tab1_label3 = New-Object System.Windows.Forms.Label
 $Tab1_label3.Location = New-Object System.Drawing.Point($Tab1_row3_distance,10)
 $Tab1_label3.Font = New-Object System.Drawing.Font('verdana',16)
@@ -67,7 +71,7 @@ $Tab1_label3.Text = ("Domian")
 $Tab1.Controls.Add($Tab1_label3)
 
 
-# label 4
+# Printers label 4
 $Tab1_label4 = New-Object System.Windows.Forms.Label
 $Tab1_label4.Location = New-Object System.Drawing.Point($Tab1_row2_distance,175)
 $Tab1_label4.Font = New-Object System.Drawing.Font('verdana',16)
@@ -76,13 +80,18 @@ $Tab1_label4.ForeColor = "#000000"
 $Tab1_label4.Text = ("Printers")
 $Tab1.Controls.Add($Tab1_label4)
 
-
+# Printers label 4
+$Tab1_label4 = New-Object System.Windows.Forms.Label
+$Tab1_label4.Location = New-Object System.Drawing.Point($Tab1_row3_distance,175)
+$Tab1_label4.Font = New-Object System.Drawing.Font('verdana',16)
+$Tab1_label4.AutoSize = $true
+$Tab1_label4.ForeColor = "#000000"
+$Tab1_label4.Text = ("Wi-Fi")
+$Tab1.Controls.Add($Tab1_label4)
 
 # Lots of buttons
 
-$Tab1_row1_distance=25
-$Tab1_row2_distance=235
-$Tab1_row3_distance=445
+
 
 $Tab1_appbutton1 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,50)
@@ -160,21 +169,31 @@ $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row2_distance,50)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton11.Text = "Update Windows"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Add_Click({
+	Write-Host "Updating Windows"
+	Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Scope CurrentUser
+	Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
+	Import-Module PSWindowsUpdate -Scope CurrentUser
+	Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -Scope CurrentUser
+})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row2_distance,85)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton11.Text = "Update Office"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Add_Click({
+	"$env:CommonProgramFiles\microsoft shared\ClickToRun\OfficeC2RClient.exe"
+})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row2_distance,120)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton11.Text = "Dell Command | Update"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Add_Click({Start-Process 
+	'C:\Program Files\Dell\CommandUpdate\dcu-cli.exe'
+})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 
@@ -192,7 +211,7 @@ $Tab1_appbutton8 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton8.Location = New-Object System.Drawing.Point($Tab1_row2_distance,260)
 $Tab1_appbutton8.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton8.Text = "EERAKSRV02"
-$Tab1_appbutton8.Add_Click({Start-Process \\eerkasrv02})
+$Tab1_appbutton8.Add_Click({Start-Process \\eeraksrv02})
 $tab1.Controls.Add($Tab1_appbutton8)
 
 
@@ -202,14 +221,16 @@ $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,50)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton11.Text = "Add to Domain"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Add_Click({
+	Add-Computer -DomainName jwinc.jeld-wen.com
+})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,85)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
 $Tab1_appbutton11.Text = "Domain Panel"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Add_Click({Start-Process sysdm.cpl})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
@@ -221,6 +242,24 @@ $tab1.Controls.Add($Tab1_appbutton11)
 
 
 
+$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
+$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,225)
+$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_appbutton11.Text = "JWWLAN"
+$Tab1_appbutton11.Add_Click({
+	netsh wlan connect ssid="JWWLAN" key="Jeld-Wen1!"
+})
+$tab1.Controls.Add($Tab1_appbutton11)
+
+$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
+$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,260)
+$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_appbutton11.Text = "Guest"
+$Tab1_appbutton11.Add_Click({
+	netsh wlan connect ssid="JWWLAN" key="Jeld-Wen1!"
+
+})
+$tab1.Controls.Add($Tab1_appbutton11)
 
 
 
@@ -308,7 +347,13 @@ $Tab2_installbutton1 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,50)
 $Tab2_installbutton1.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton1.Text = "Digidoc4"
-$Tab2_installbutton1.Add_Click({Start-Process hdwwiz.cpl})
+$Tab2_installbutton1.Add_Click({
+	Invoke-WebRequest -Uri https://github.com/open-eid/DigiDoc4-Client/releases/download/v4.3.0/Digidoc4_Client-4.3.0.4438.x64.et-EE.qt.msi -OutFile "C:\Users\Public\Documents\digidoc.msi"
+	Write-Host "downloaded"
+	C:\Users\Public\Documents\digidoc.msi /quiet
+	Write-Host "installed"
+
+})
 $tab2.Controls.Add($Tab2_installbutton1)
 
 $Tab2_installbutton2 = New-Object System.Windows.Forms.Button
@@ -476,6 +521,60 @@ $Tab2_probutton2.Size = New-Object System.Drawing.Size (200,35)
 $Tab2_probutton2.Text = "User Manager"
 $Tab2_probutton2.Add_Click({& 'C:\Program Files\usermanager\lusrmgr.exe'})
 $Tab2.Controls.Add($Tab2_probutton2)
+
+
+
+
+
+
+
+
+
+
+# TAB 3
+#----------------------------------------------
+
+
+$Tab2 = New-object System.Windows.Forms.Tabpage
+$Tab2.DataBindings.DefaultDataSourceUpdateMode = 0 
+$Tab2.Name = "Tab2" 
+$Tab2.Text = "Laptop Setup" 
+$FormTabControl.Controls.Add($Tab2)
+
+# label
+$Tab2_label1 = New-Object System.Windows.Forms.Label
+$Tab2_label1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,10)
+$Tab2_label1.Font = New-Object System.Drawing.Font('verdana',16)
+$Tab2_label1.AutoSize = $true
+$Tab2_label1.ForeColor = "#000000"
+$Tab2_label1.Text = ("Install")
+$Tab2.Controls.Add($Tab2_label1)
+
+
+
+# TAB 4
+#----------------------------------------------
+
+
+$Tab2 = New-object System.Windows.Forms.Tabpage
+$Tab2.DataBindings.DefaultDataSourceUpdateMode = 0 
+$Tab2.Name = "Tab2" 
+$Tab2.Text = "Desktop Setup" 
+$FormTabControl.Controls.Add($Tab2)
+
+# label
+$Tab2_label1 = New-Object System.Windows.Forms.Label
+$Tab2_label1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,10)
+$Tab2_label1.Font = New-Object System.Drawing.Font('verdana',16)
+$Tab2_label1.AutoSize = $true
+$Tab2_label1.ForeColor = "#000000"
+$Tab2_label1.Text = ("Install")
+$Tab2.Controls.Add($Tab2_label1)
+
+
+
+
+
 
 
 
