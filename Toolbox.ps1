@@ -96,42 +96,42 @@ $Tab1.Controls.Add($Tab1_label4)
 $Tab1_appbutton1 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,50)
 $Tab1_appbutton1.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton1.Text = "Device Manager"
+$Tab1_appbutton1.Text = "Device Manager - done"
 $Tab1_appbutton1.Add_Click({Start-Process hdwwiz.cpl})
 $tab1.Controls.Add($Tab1_appbutton1)
 
 $Tab1_appbutton2 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton2.Location = New-Object System.Drawing.Point($Tab1_row1_distance,85)
 $Tab1_appbutton2.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton2.Text = "Display Properties"
+$Tab1_appbutton2.Text = "Display Properties - done"
 $Tab1_appbutton2.Add_Click({Start-Process desk.cpl})
 $tab1.Controls.Add($Tab1_appbutton2)
 
 $Tab1_appbutton3 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton3.Location = New-Object System.Drawing.Point($Tab1_row1_distance,120)
 $Tab1_appbutton3.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton3.Text = "Control Panel"
+$Tab1_appbutton3.Text = "Control Panel - done"
 $Tab1_appbutton3.Add_Click({Start-Process control})
 $tab1.Controls.Add($Tab1_appbutton3)
 
 $Tab1_appbutton4 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton4.Location = New-Object System.Drawing.Point($Tab1_row1_distance,155)
 $Tab1_appbutton4.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton4.Text = "Sound and Audio"
+$Tab1_appbutton4.Text = "Sound and Audio - done"
 $Tab1_appbutton4.Add_Click({Start-Process mmsys.cpl})
 $tab1.Controls.Add($Tab1_appbutton4)
 
 $Tab1_appbutton5 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton5.Location = New-Object System.Drawing.Point($Tab1_row1_distance,190)
 $Tab1_appbutton5.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton5.Text = "Network Properties"
+$Tab1_appbutton5.Text = "Network Properties - done"
 $Tab1_appbutton5.Add_Click({Start-Process ncpa.cpl})
 $tab1.Controls.Add($Tab1_appbutton5)
 
 $Tab1_appbutton6 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton6.Location = New-Object System.Drawing.Point($Tab1_row1_distance,225)
 $Tab1_appbutton6.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton6.Text = "Settings"
+$Tab1_appbutton6.Text = "Settings - done"
 $Tab1_appbutton6.Add_Click({Start-Process ms-settings:})
 $tab1.Controls.Add($Tab1_appbutton6)
 
@@ -139,7 +139,7 @@ $tab1.Controls.Add($Tab1_appbutton6)
 $Tab1_appbutton9 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton9.Location = New-Object System.Drawing.Point($Tab1_row1_distance,260)
 $Tab1_appbutton9.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton9.Text = "Calibrate touchscreen (Admin)"
+$Tab1_appbutton9.Text = "Calibrate touchscreen (Admin) - done"
 $Tab1_appbutton9.Add_Click({Start-Process tabcal.exe})
 $tab1.Controls.Add($Tab1_appbutton9)
 
@@ -147,7 +147,7 @@ $tab1.Controls.Add($Tab1_appbutton9)
 $Tab1_appbutton10 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton10.Location = New-Object System.Drawing.Point($Tab1_row1_distance,295)
 $Tab1_appbutton10.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton10.Text = "Add/Remove Applications"
+$Tab1_appbutton10.Text = "Add/Remove Applications - done"
 $Tab1_appbutton10.Add_Click({Start-Process appwiz.cpl})
 $tab1.Controls.Add($Tab1_appbutton10)
 
@@ -155,8 +155,8 @@ $tab1.Controls.Add($Tab1_appbutton10)
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row1_distance,330)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Display Properties"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
+$Tab1_appbutton11.Text = "IT NAS - done"
+$Tab1_appbutton11.Add_Click({explorer \\10.72.7.1\IT})
 $tab1.Controls.Add($Tab1_appbutton11)
 
 
@@ -189,7 +189,7 @@ $tab1.Controls.Add($Tab1_appbutton111)
 $Tab1_appbutton112 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton112.Location = New-Object System.Drawing.Point($Tab1_row2_distance,85)
 $Tab1_appbutton112.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton112.Text = "Install winget updates (Apps)"
+$Tab1_appbutton112.Text = "Install winget updates (Apps) - done - admin"
 $Tab1_appbutton112.Add_Click({start-process powershell -verb runas {
 		winget update --verbose 
 		winget upgrade --all --accept-source-agreements --accept-source-agreements 
@@ -202,7 +202,7 @@ $tab1.Controls.Add($Tab1_appbutton112)
 $Tab1_appbutton113 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton113.Location = New-Object System.Drawing.Point($Tab1_row2_distance,120)
 $Tab1_appbutton113.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton113.Text = "Update Office"
+$Tab1_appbutton113.Text = "Update Office - done"
 $Tab1_appbutton113.Add_Click({
 	#info text
 Write-Host ""
@@ -510,7 +510,7 @@ $tab1.Controls.Add($Tab1_appbutton113)
 $Tab1_appbutton11 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row2_distance,155)
 $Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Dell Command | Update"
+$Tab1_appbutton11.Text = "Dell Command | Update - WIP"
 $Tab1_appbutton11.Add_Click({Start-Process 
 	#'C:\Program Files\Dell\CommandUpdate\dcu-cli.exe'
 
@@ -529,7 +529,7 @@ $tab1.Controls.Add($Tab1_appbutton11)
 $Tab1_appbutton7 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton7.Location = New-Object System.Drawing.Point($Tab1_row2_distance,225)
 $Tab1_appbutton7.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton7.Text = "Printers"
+$Tab1_appbutton7.Text = "Printers - Done"
 $Tab1_appbutton7.Add_Click({Start-Process control printers})
 $tab1.Controls.Add($Tab1_appbutton7)
 
@@ -537,58 +537,64 @@ $tab1.Controls.Add($Tab1_appbutton7)
 $Tab1_appbutton8 = New-Object System.Windows.Forms.Button
 $Tab1_appbutton8.Location = New-Object System.Drawing.Point($Tab1_row2_distance,260)
 $Tab1_appbutton8.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton8.Text = "EERAKSRV02"
-$Tab1_appbutton8.Add_Click({Start-Process \\eeraksrv02})
+$Tab1_appbutton8.Text = "EERAKSRV02 - done"
+$Tab1_appbutton8.Add_Click({explorer \\eeraksrv02})
 $tab1.Controls.Add($Tab1_appbutton8)
 
 
 
 
-$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
-$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,50)
-$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Add to Domain"
+$Tab1_domainbutton1 = New-Object System.Windows.Forms.Button
+$Tab1_domainbutton1.Location = New-Object System.Drawing.Point($Tab1_row3_distance,50)
+$Tab1_domainbutton1.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_domainbutton1.Text = "Add to Domain - WIP"
 $Tab1_appbutton11.Add_Click({
 	Add-Computer -DomainName jwinc.jeld-wen.com
 })
-$tab1.Controls.Add($Tab1_appbutton11)
+$tab1.Controls.Add($Tab1_domainbutton1)
 
-$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
-$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,85)
-$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Domain Panel"
-$Tab1_appbutton11.Add_Click({Start-Process sysdm.cpl})
-$tab1.Controls.Add($Tab1_appbutton11)
+$Tab1_domainbutton2 = New-Object System.Windows.Forms.Button
+$Tab1_domainbutton2.Location = New-Object System.Drawing.Point($Tab1_row3_distance,85)
+$Tab1_domainbutton2.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_domainbutton2.Text = "Domain Panel - done"
+$Tab1_domainbutton2.Add_Click({Start-Process sysdm.cpl})
+$tab1.Controls.Add($Tab1_domainbutton2)
 
-$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
-$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,120)
-$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Display Properties"
-$Tab1_appbutton11.Add_Click({Start-Process desk.cpl})
-$tab1.Controls.Add($Tab1_appbutton11)
+$Tab1_domainbutton3 = New-Object System.Windows.Forms.Button
+$Tab1_domainbutton3.Location = New-Object System.Drawing.Point($Tab1_row3_distance,120)
+$Tab1_domainbutton3.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_domainbutton3.Text = "WIP"
+$Tab1_domainbutton3.Add_Click({Start-Process desk.cpl})
+$tab1.Controls.Add($Tab1_domainbutton3)
 
 
 
-$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
-$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,225)
-$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "JWWLAN"
-$Tab1_appbutton11.Add_Click({
-	netsh wlan connect ssid="JWWLAN" key="Jeld-Wen1!"
+$Tab1_wifi1 = New-Object System.Windows.Forms.Button
+$Tab1_wifi1.Location = New-Object System.Drawing.Point($Tab1_row3_distance,225)
+$Tab1_wifi1.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_wifi1.Text = "JWWLAN - done"
+$Tab1_wifi1.Add_Click({
+    netsh wlan connect ssid="JWWLAN" name="JWWLAN"
 })
-$tab1.Controls.Add($Tab1_appbutton11)
+$tab1.Controls.Add($Tab1_wifi1)
 
-$Tab1_appbutton11 = New-Object System.Windows.Forms.Button
-$Tab1_appbutton11.Location = New-Object System.Drawing.Point($Tab1_row3_distance,260)
-$Tab1_appbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab1_appbutton11.Text = "Guest"
-$Tab1_appbutton11.Add_Click({
-	netsh wlan connect ssid="JWWLAN" key="Jeld-Wen1!"
-
+$Tab1_wifi2 = New-Object System.Windows.Forms.Button
+$Tab1_wifi2.Location = New-Object System.Drawing.Point($Tab1_row3_distance,260)
+$Tab1_wifi2.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_wifi2.Text = "Guest"
+$Tab1_wifi2.Add_Click({
+	netsh wlan connect ssid="Külalised - Visitors" name="Kõlalised - Visitors"
 })
-$tab1.Controls.Add($Tab1_appbutton11)
+$tab1.Controls.Add($Tab1_wifi2)
 
-
+$Tab1_wifi3 = New-Object System.Windows.Forms.Button
+$Tab1_wifi3.Location = New-Object System.Drawing.Point($Tab1_row3_distance,295)
+$Tab1_wifi3.Size = New-Object System.Drawing.Size(200,35)
+$Tab1_wifi3.Text = "JW Primary"
+$Tab1_wifi3.Add_Click({
+	netsh wlan connect ssid="JW Primary" name="JW Primary"
+})
+$tab1.Controls.Add($Tab1_wifi3)
 
 
 
@@ -673,12 +679,27 @@ $Tab2.Controls.Add($Tab2_label3)
 $Tab2_installbutton1 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton1.Location = New-Object System.Drawing.Point($Tab1_row1_distance,50)
 $Tab2_installbutton1.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton1.Text = "Digidoc4"
+$Tab2_installbutton1.Text = "Digidoc4 - to be tested"
 $Tab2_installbutton1.Add_Click({
-	Invoke-WebRequest -Uri https://github.com/open-eid/DigiDoc4-Client/releases/download/v4.3.0/Digidoc4_Client-4.3.0.4438.x64.et-EE.qt.msi -OutFile "C:\Users\Public\Documents\digidoc.msi"
-	Write-Host "downloaded"
-	C:\Users\Public\Documents\digidoc.msi /quiet
-	Write-Host "installed"
+	#Invoke-WebRequest -Uri https://github.com/open-eid/DigiDoc4-Client/releases/download/v4.3.0/Digidoc4_Client-4.3.0.4438.x64.et-EE.qt.msi -OutFile "C:\Users\Public\Documents\digidoc.msi"
+	#Write-Host "downloaded"
+	#C:\Users\Public\Documents\digidoc.msi /quiet
+	#Write-Host "installed"
+
+	$URL = "https://api.github.com/repos/open-eid/DigiDoc4-Client/releases/latest"
+	$URL = (Invoke-WebRequest -Uri $URL).Content | ConvertFrom-Json |
+			Select-Object -ExpandProperty "assets" |
+			Where-Object "browser_download_url" -Match 'EE.qt.msi' |
+			Select-Object -ExpandProperty "browser_download_url"
+# download
+	Invoke-WebRequest -Uri $URL -OutFile "C:\Users\Public\Documents\digidoc.msi" -UseBasicParsing
+
+# install
+C:\Users\Public\Documents\digidoc.msi /quiet
+
+# delete file
+#	Remove-Item "digidoc.msi"
+
 
 })
 $tab2.Controls.Add($Tab2_installbutton1)
@@ -686,43 +707,46 @@ $tab2.Controls.Add($Tab2_installbutton1)
 $Tab2_installbutton2 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton2.Location = New-Object System.Drawing.Point($Tab1_row1_distance,85)
 $Tab2_installbutton2.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton2.Text = "Barcode Fonts"
-$Tab2_installbutton2.Add_Click({Start-Process desk.cpl})
+$Tab2_installbutton2.Text = "Barcode Fonts - to be tested"
+$Tab2_installbutton2.Add_Click({
+    xcopy "\\10.72.7.1\IT\FRE3OF9X.TTF" "%userprofile%\AppData\Local\Microsoft\Windows\Fonts"
+    xcopy "\\10.72.7.1\IT\FREE3OF9.TTF" "%userprofile%\AppData\Local\Microsoft\Windows\Fonts"
+})
 $tab2.Controls.Add($Tab2_installbutton2)
 
 $Tab2_installbutton3 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton3.Location = New-Object System.Drawing.Point($Tab1_row1_distance,120)
 $Tab2_installbutton3.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton3.Text = "Java"
-$Tab2_installbutton3.Add_Click({Start-Process control})
+$Tab2_installbutton3.Add_Click({Start-Process "\\10.72.7.1\it\JAVA jre-8u221-windows-i586.exe"})
 $tab2.Controls.Add($Tab2_installbutton3)
 
 $Tab2_installbutton4 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton4.Location = New-Object System.Drawing.Point($Tab1_row1_distance,155)
 $Tab2_installbutton4.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton4.Text = "Cisco Anyconnect"
-$Tab2_installbutton4.Add_Click({Start-Process mmsys.cpl})
+$Tab2_installbutton4.Add_Click({Start-Process "\\10.72.7.1\it\anyconnect-win-4.10.05095-core-vpn-webdeploy-k9.msi"})
 $tab2.Controls.Add($Tab2_installbutton4)
 
 $Tab2_installbutton5 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton5.Location = New-Object System.Drawing.Point($Tab1_row1_distance,190)
 $Tab2_installbutton5.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton5.Text = "Jabra Connect"
-$Tab2_installbutton5.Add_Click({Start-Process ncpa.cpl})
+$Tab2_installbutton5.Add_Click({Start-Process "\\10.72.7.1\it\JabraDirectSetup.exe"})
 $tab2.Controls.Add($Tab2_installbutton5)
 
 $Tab2_installbutton6 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton6.Location = New-Object System.Drawing.Point($Tab1_row1_distance,225)
 $Tab2_installbutton6.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton6.Text = "Adobe Acrobat"
-$Tab2_installbutton6.Add_Click({Start-Process ms-settings:})
+$Tab2_installbutton6.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Adobe Acrobat Reader DC\readerdc64_en_l_cra_mdr_install.exe"})
 $tab2.Controls.Add($Tab2_installbutton6)
 
 
 $Tab2_installbutton7 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton7.Location = New-Object System.Drawing.Point($Tab1_row1_distance,260)
 $Tab2_installbutton7.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton7.Text = "Add Active Directory Users and Computers"
+$Tab2_installbutton7.Text = "Add Active Directory Users and Computers - WIP"
 $Tab2_installbutton7.Add_Click({Start-Process tabcal.exe})
 $tab2.Controls.Add($Tab2_installbutton7)
 
@@ -731,7 +755,7 @@ $Tab2_installbutton8 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton8.Location = New-Object System.Drawing.Point($Tab1_row1_distance,295)
 $Tab2_installbutton8.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton8.Text = "MS Office"
-$Tab2_installbutton8.Add_Click({Start-Process appwiz.cpl})
+$Tab2_installbutton8.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Office new\OfficeSetup.exe"})
 $tab2.Controls.Add($Tab2_installbutton8)
 
 
@@ -739,14 +763,14 @@ $Tab2_installbutton9 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton9.Location = New-Object System.Drawing.Point($Tab1_row1_distance,330)
 $Tab2_installbutton9.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton9.Text = "Firefox"
-$Tab2_installbutton9.Add_Click({Start-Process desk.cpl})
+$Tab2_installbutton9.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Firefox\Firefox Installer.exe"})
 $tab2.Controls.Add($Tab2_installbutton9)
 
 
 $Tab2_installbutton10 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton10.Location = New-Object System.Drawing.Point($Tab1_row1_distance,365)
 $Tab2_installbutton10.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton10.Text = "Powertoys"
+$Tab2_installbutton10.Text = "Powertoys - WIP"
 $Tab2_installbutton10.Add_Click({Start-Process desk.cpl})
 $tab2.Controls.Add($Tab2_installbutton10)
 
@@ -754,7 +778,7 @@ $tab2.Controls.Add($Tab2_installbutton10)
 $Tab2_installbutton11 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton11.Location = New-Object System.Drawing.Point($Tab1_row1_distance,400)
 $Tab2_installbutton11.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton11.Text = "WSL"
+$Tab2_installbutton11.Text = "WSL - to be tested"
 $Tab2_installbutton11.Add_Click({start-process powershell -verb runas {
 	Enable-WindowsOptionalFeature -Online -FeatureName "VirtualMachinePlatform" -All
 	Enable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -All
@@ -778,7 +802,14 @@ $Tab2_installbutton1 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton1.Location = New-Object System.Drawing.Point($Tab1_row2_distance,50)
 $Tab2_installbutton1.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton1.Text = "Java"
-$Tab2_installbutton1.Add_Click({Start-Process hdwwiz.cpl})
+$Tab2_installbutton1.Add_Click({
+    $App = "Java"
+
+#x86
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "*$App*"} | Select-Object -Property DisplayName, UninstallString
+#x64
+Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "*$App*"} | Select-Object -Property DisplayName, UninstallString
+})
 $tab2.Controls.Add($Tab2_installbutton1)
 
 $Tab2_installbutton2 = New-Object System.Windows.Forms.Button
