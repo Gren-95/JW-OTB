@@ -638,14 +638,7 @@ $Tab2_label1.ForeColor = "#000000"
 $Tab2_label1.Text = ("Install")
 $Tab2.Controls.Add($Tab2_label1)
 
-# label
-$Tab2_label2 = New-Object System.Windows.Forms.Label
-$Tab2_label2.Location = New-Object System.Drawing.Point($Tab1_row2_distance,10)
-$Tab2_label2.Font = New-Object System.Drawing.Font('verdana',16)
-$Tab2_label2.AutoSize = $true
-$Tab2_label2.ForeColor = "#000000"
-$Tab2_label2.Text = ("Remove")
-$Tab2.Controls.Add($Tab2_label2)
+
 
 # label
 $Tab2_label3 = New-Object System.Windows.Forms.Label
@@ -717,28 +710,28 @@ $tab2.Controls.Add($Tab2_installbutton2)
 $Tab2_installbutton3 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton3.Location = New-Object System.Drawing.Point($Tab1_row1_distance,120)
 $Tab2_installbutton3.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton3.Text = "Java"
+$Tab2_installbutton3.Text = "Java - to be tested"
 $Tab2_installbutton3.Add_Click({Start-Process "\\10.72.7.1\it\JAVA jre-8u221-windows-i586.exe"})
 $tab2.Controls.Add($Tab2_installbutton3)
 
 $Tab2_installbutton4 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton4.Location = New-Object System.Drawing.Point($Tab1_row1_distance,155)
 $Tab2_installbutton4.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton4.Text = "Cisco Anyconnect"
+$Tab2_installbutton4.Text = "Cisco Anyconnect - to be tested"
 $Tab2_installbutton4.Add_Click({Start-Process "\\10.72.7.1\it\anyconnect-win-4.10.05095-core-vpn-webdeploy-k9.msi"})
 $tab2.Controls.Add($Tab2_installbutton4)
 
 $Tab2_installbutton5 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton5.Location = New-Object System.Drawing.Point($Tab1_row1_distance,190)
 $Tab2_installbutton5.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton5.Text = "Jabra Connect"
+$Tab2_installbutton5.Text = "Jabra Connect - to be tested"
 $Tab2_installbutton5.Add_Click({Start-Process "\\10.72.7.1\it\JabraDirectSetup.exe"})
 $tab2.Controls.Add($Tab2_installbutton5)
 
 $Tab2_installbutton6 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton6.Location = New-Object System.Drawing.Point($Tab1_row1_distance,225)
 $Tab2_installbutton6.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton6.Text = "Adobe Acrobat"
+$Tab2_installbutton6.Text = "Adobe Acrobat - to be tested"
 $Tab2_installbutton6.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Adobe Acrobat Reader DC\readerdc64_en_l_cra_mdr_install.exe"})
 $tab2.Controls.Add($Tab2_installbutton6)
 
@@ -754,7 +747,7 @@ $tab2.Controls.Add($Tab2_installbutton7)
 $Tab2_installbutton8 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton8.Location = New-Object System.Drawing.Point($Tab1_row1_distance,295)
 $Tab2_installbutton8.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton8.Text = "MS Office"
+$Tab2_installbutton8.Text = "MS Office - to be tested"
 $Tab2_installbutton8.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Office new\OfficeSetup.exe"})
 $tab2.Controls.Add($Tab2_installbutton8)
 
@@ -762,7 +755,7 @@ $tab2.Controls.Add($Tab2_installbutton8)
 $Tab2_installbutton9 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton9.Location = New-Object System.Drawing.Point($Tab1_row1_distance,330)
 $Tab2_installbutton9.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton9.Text = "Firefox"
+$Tab2_installbutton9.Text = "Firefox - to be tested"
 $Tab2_installbutton9.Add_Click({Start-Process "\\10.72.7.1\it\!ajutine\Efe\1 - Installers\Firefox\Firefox Installer.exe"})
 $tab2.Controls.Add($Tab2_installbutton9)
 
@@ -787,44 +780,39 @@ $Tab2_installbutton11.Add_Click({start-process powershell -verb runas {
 $tab2.Controls.Add($Tab2_installbutton11)
 
 
+$Tab2_installbutton12 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton12.Location = New-Object System.Drawing.Point($Tab1_row2_distance,50)
+$Tab2_installbutton12.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton12.Text = "PMS - WIP"
+$Tab2_installbutton12.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton12)
+
+$Tab2_installbutton13 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton13.Location = New-Object System.Drawing.Point($Tab1_row2_distance,85)
+$Tab2_installbutton13.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton13.Text = "TITAN - WIP"
+$Tab2_installbutton13.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton13)
+
+$Tab2_installbutton14 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton14.Location = New-Object System.Drawing.Point($Tab1_row2_distance,120)
+$Tab2_installbutton14.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton14.Text = "PPS Shortcut - WIP"
+$Tab2_installbutton14.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton14)
+
+
+$Tab2_installbutton15 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton15.Location = New-Object System.Drawing.Point($Tab1_row2_distance,155)
+$Tab2_installbutton15.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton15.Text = "SAP - WIP"
+$Tab2_installbutton15.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton15)
 
 
 
 
 
-
-
-
-
-
-
-$Tab2_installbutton1 = New-Object System.Windows.Forms.Button
-$Tab2_installbutton1.Location = New-Object System.Drawing.Point($Tab1_row2_distance,50)
-$Tab2_installbutton1.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton1.Text = "Java"
-$Tab2_installbutton1.Add_Click({
-    $App = "Java"
-
-#x86
-Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "*$App*"} | Select-Object -Property DisplayName, UninstallString
-#x64
-Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | where {$_.displayname -like "*$App*"} | Select-Object -Property DisplayName, UninstallString
-})
-$tab2.Controls.Add($Tab2_installbutton1)
-
-$Tab2_installbutton2 = New-Object System.Windows.Forms.Button
-$Tab2_installbutton2.Location = New-Object System.Drawing.Point($Tab1_row2_distance,85)
-$Tab2_installbutton2.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton2.Text = "Adobe Acrobat"
-$Tab2_installbutton2.Add_Click({Start-Process desk.cpl})
-$tab2.Controls.Add($Tab2_installbutton2)
-
-$Tab2_installbutton3 = New-Object System.Windows.Forms.Button
-$Tab2_installbutton3.Location = New-Object System.Drawing.Point($Tab1_row2_distance,120)
-$Tab2_installbutton3.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton3.Text = "MS Office"
-$Tab2_installbutton3.Add_Click({Start-Process control})
-$tab2.Controls.Add($Tab2_installbutton3)
 
 
 
