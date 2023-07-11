@@ -639,19 +639,9 @@ $Tab2_label1.Text = ("Install")
 $Tab2.Controls.Add($Tab2_label1)
 
 
-
 # label
 $Tab2_label3 = New-Object System.Windows.Forms.Label
 $Tab2_label3.Location = New-Object System.Drawing.Point($Tab1_row3_distance,10)
-$Tab2_label3.Font = New-Object System.Drawing.Font('verdana',16)
-$Tab2_label3.AutoSize = $true
-$Tab2_label3.ForeColor = "#000000"
-$Tab2_label3.Text = ("Pro Apps")
-$Tab2.Controls.Add($Tab2_label3)
-
-# label
-$Tab2_label3 = New-Object System.Windows.Forms.Label
-$Tab2_label3.Location = New-Object System.Drawing.Point($Tab1_row3_distance,190)
 $Tab2_label3.Font = New-Object System.Drawing.Font('verdana',16)
 $Tab2_label3.AutoSize = $true
 $Tab2_label3.ForeColor = "#000000"
@@ -739,8 +729,12 @@ $tab2.Controls.Add($Tab2_installbutton6)
 $Tab2_installbutton7 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton7.Location = New-Object System.Drawing.Point($Tab1_row1_distance,260)
 $Tab2_installbutton7.Size = New-Object System.Drawing.Size(200,35)
-$Tab2_installbutton7.Text = "Add Active Directory Users and Computers - WIP"
-$Tab2_installbutton7.Add_Click({Start-Process tabcal.exe})
+$Tab2_installbutton7.Text = "Add Active Directory Users and Computers - to be tested"
+$Tab2_installbutton7.Add_Click({
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "UseWUServer" -Value 0
+	Restart-Service wuauserv
+    Add-WindowsCapability -Online -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+})
 $tab2.Controls.Add($Tab2_installbutton7)
 
 
@@ -805,7 +799,21 @@ $tab2.Controls.Add($Tab2_installbutton14)
 $Tab2_installbutton15 = New-Object System.Windows.Forms.Button
 $Tab2_installbutton15.Location = New-Object System.Drawing.Point($Tab1_row2_distance,155)
 $Tab2_installbutton15.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton15.Text = "PPS Edge fix"
+$Tab2_installbutton15.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton15)
+
+$Tab2_installbutton15 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton15.Location = New-Object System.Drawing.Point($Tab1_row2_distance,190)
+$Tab2_installbutton15.Size = New-Object System.Drawing.Size(200,35)
 $Tab2_installbutton15.Text = "SAP - WIP"
+$Tab2_installbutton15.Add_Click({Start-Process desk.cpl})
+$tab2.Controls.Add($Tab2_installbutton15)
+
+$Tab2_installbutton15 = New-Object System.Windows.Forms.Button
+$Tab2_installbutton15.Location = New-Object System.Drawing.Point($Tab1_row2_distance,225)
+$Tab2_installbutton15.Size = New-Object System.Drawing.Size(200,35)
+$Tab2_installbutton15.Text = "SAP2  - WIP"
 $Tab2_installbutton15.Add_Click({Start-Process desk.cpl})
 $tab2.Controls.Add($Tab2_installbutton15)
 
@@ -825,9 +833,8 @@ $tab2.Controls.Add($Tab2_installbutton15)
 
 
 
-
 $Tab2_pkgmgrbutton4 = New-Object System.Windows.Forms.Button
-$Tab2_pkgmgrbutton4.Location = New-Object System.Drawing.Point($Tab1_row3_distance,225)
+$Tab2_pkgmgrbutton4.Location = New-Object System.Drawing.Point($Tab1_row3_distance,50)
 $Tab2_pkgmgrbutton4.Size = New-Object System.Drawing.Size (200,35)
 $Tab2_pkgmgrbutton4.Text = "Reinstall MS Store"
 $Tab2_pkgmgrbutton4.Add_Click({start-process powershell -verb runas {
@@ -836,7 +843,7 @@ Get-AppxPackage -allusers Microsoft.WindowsStore | ForEach-Object {Add-AppxPacka
 $Tab2.Controls.Add($Tab2_pkgmgrbutton4)
 
 $Tab2_pkgmgrbutton5 = New-Object System.Windows.Forms.Button
-$Tab2_pkgmgrbutton5.Location = New-Object System.Drawing.Point($Tab1_row3_distance,260)
+$Tab2_pkgmgrbutton5.Location = New-Object System.Drawing.Point($Tab1_row3_distance,85)
 $Tab2_pkgmgrbutton5.Size = New-Object System.Drawing.Size (200,35)
 $Tab2_pkgmgrbutton5.Text = "Remove MS Store Apps"
 $Tab2_pkgmgrbutton5.Add_Click({start-process powershell -verb runas {
@@ -844,31 +851,40 @@ Get-AppPackage | Remove-AppPackage
 }})
 $Tab2.Controls.Add($Tab2_pkgmgrbutton5)
 
+$Tab2_pkgmgrbutton6 = New-Object System.Windows.Forms.Button
+$Tab2_pkgmgrbutton6.Location = New-Object System.Drawing.Point($Tab1_row3_distance,120)
+$Tab2_pkgmgrbutton6.Size = New-Object System.Drawing.Size (200,35)
+$Tab2_pkgmgrbutton6.Text = "Calculator"
+$Tab2_pkgmgrbutton6.Add_Click({start-process powershell -verb runas {
+    Get-AppxPackage -allusers *windowscalculator* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}}})
+$Tab2.Controls.Add($Tab2_pkgmgrbutton6)
 
-$Tab2_probutton1 = New-Object System.Windows.Forms.Button
-$Tab2_probutton1.Location = New-Object System.Drawing.Point($Tab1_row3_distance,50)
-$Tab2_probutton1.Size = New-Object System.Drawing.Size (200,35)
-$Tab2_probutton1.Text = "Install User Manager"
-$Tab2_probutton1.Add_Click({start-process powershell -verb runas {
-mkdir 'C:\Program Files\usermanager'
-Start-BitsTransfer -Source "https://github.com/proviq/AccountManagement/raw/master/lusrmgr/bin/Release/lusrmgr.exe" -Destination "C:\Program Files\usermanager"
-$SourceFilePath = "C:\Program Files\usermanager\lusrmgr.exe"
-$ShortcutPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\lusrmgr.lnk"
-$WScriptObj = New-Object -ComObject ("WScript.Shell")
-$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
-$shortcut.TargetPath = $SourceFilePath
-$shortcut.Save()
+$Tab2_pkgmgrbutton7 = New-Object System.Windows.Forms.Button
+$Tab2_pkgmgrbutton7.Location = New-Object System.Drawing.Point($Tab1_row3_distance,155)
+$Tab2_pkgmgrbutton7.Size = New-Object System.Drawing.Size (200,35)
+$Tab2_pkgmgrbutton7.Text = "win term"
+$Tab2_pkgmgrbutton7.Add_Click({start-process powershell -verb runas {
+Get-AppPackage | Remove-AppPackage
 }})
-$Tab2.Controls.Add($Tab2_probutton1)
+$Tab2.Controls.Add($Tab2_pkgmgrbutton7)
 
-$Tab2_probutton2 = New-Object System.Windows.Forms.Button
-$Tab2_probutton2.Location = New-Object System.Drawing.Point($Tab1_row3_distance,85)
-$Tab2_probutton2.Size = New-Object System.Drawing.Size (200,35)
-$Tab2_probutton2.Text = "User Manager"
-$Tab2_probutton2.Add_Click({& 'C:\Program Files\usermanager\lusrmgr.exe'})
-$Tab2.Controls.Add($Tab2_probutton2)
+$Tab2_pkgmgrbutton8 = New-Object System.Windows.Forms.Button
+$Tab2_pkgmgrbutton8.Location = New-Object System.Drawing.Point($Tab1_row3_distance,190)
+$Tab2_pkgmgrbutton8.Size = New-Object System.Drawing.Size (200,35)
+$Tab2_pkgmgrbutton8.Text = "wireless display adapter"
+$Tab2_pkgmgrbutton8.Add_Click({start-process powershell -verb runas {
+Get-AppPackage | Remove-AppPackage
+}})
+$Tab2.Controls.Add($Tab2_pkgmgrbutton8)
 
-
+$Tab2_pkgmgrbutton8 = New-Object System.Windows.Forms.Button
+$Tab2_pkgmgrbutton8.Location = New-Object System.Drawing.Point($Tab1_row3_distance,225)
+$Tab2_pkgmgrbutton8.Size = New-Object System.Drawing.Size (200,35)
+$Tab2_pkgmgrbutton8.Text = "MS to-do"
+$Tab2_pkgmgrbutton8.Add_Click({start-process powershell -verb runas {
+Get-AppPackage | Remove-AppPackage
+}})
+$Tab2.Controls.Add($Tab2_pkgmgrbutton8)
 
 
 
